@@ -45,6 +45,29 @@
   </style>
 
   <script>
+    
+    const spacing = document.querySelector("#spacing");
+    const blur = document.querySelector("#blur");
+    const base= document.querySelector("#base");
+
+    const image = document.querySelector("img");
+    image.style.padding = spacing.value + spacing.getAttribute("data-sizing");
+    image.style.background = base.value;
+    image.style.filter = `blur(${blur.value}${blur.getAttribute("data-sizing")})`;
+
+    spacing.addEventListener('input', function(e){
+      image.style.padding = e.target.value + e.target.getAttribute("data-sizing");
+    });
+
+    blur.addEventListener('input', function(e){
+      image.style.filter = `blur(${e.target.value}${e.target.getAttribute("data-sizing")})`
+    });
+    
+    base.addEventListener('input', function(e){
+      image.style.background = e.target.value;
+    });
+
+
   </script>
 
 </body>
